@@ -1,9 +1,11 @@
+import 'package:seraj_quran/data/datasources/asma_ul_husna_local_datasource.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
 import 'package:seraj_quran/domain/repositories/repositories.dart';
 
-/// Asma Ul Husna Repository Implementation
-class AsmaUlHusnaRepositoryImpl implements AsmaUlHusnaRepository {
-  get _localDataSource => null;
+class AsmaUlHusnaRepositoryImpl
+    implements AsmaUlHusnaRepository {
+
+  final AsmaUlHusnaLocalDataSource _localDataSource;
 
   AsmaUlHusnaRepositoryImpl(this._localDataSource);
 
@@ -16,9 +18,9 @@ class AsmaUlHusnaRepositoryImpl implements AsmaUlHusnaRepository {
   Future<AsmaName?> getName(int number) async {
     return _localDataSource.getName(number);
   }
-
+  
   @override
   Future<List<AsmaName>> searchNames(String query) async {
-    return _localDataSource.searchNames(query);
+   return _localDataSource.searchNames(query);
   }
 }
