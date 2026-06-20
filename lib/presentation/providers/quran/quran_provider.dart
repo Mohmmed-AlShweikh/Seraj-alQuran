@@ -6,11 +6,11 @@ import 'package:seraj_quran/domain/repositories/repositories.dart';
 class QuranProvider extends ChangeNotifier {
   final QuranRepository _repository;
 
-  late List<Surah> _surahs;
-  late Surah? _currentSurah;
-  late List<Verse> _searchResults;
-  late ReadingProgress? _readingProgress;
-  late int _selectedSurahIndex;
+ List<Surah> _surahs = [];
+Surah? _currentSurah;
+List<Verse> _searchResults = [];
+ReadingProgress? _readingProgress;
+int _selectedSurahIndex = 0;
 
   bool _isLoading = true;
   String? _error;

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:seraj_quran/core/constants/app_constants.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
 import 'package:seraj_quran/presentation/providers/app/app_repository_provider.dart';
+import 'package:seraj_quran/presentation/widgets/duaCard.dart';
 
 class DuasScreen extends StatefulWidget {
   const DuasScreen({super.key});
@@ -31,107 +33,79 @@ class _DuasScreenState extends State<DuasScreen> {
   }
 
   void _refresh() {
-    setState(() => _future = _load());
+    _future = _load();
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('الأدعية'), centerTitle: true),
-      body: Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
-            child: TextField(
-              textDirection: TextDirection.rtl,
-              decoration: const InputDecoration(
-                hintText: 'ابحث في الأدعية',
-                prefixIcon: Icon(Icons.search),
-              ),
-              onChanged: (value) {
-                _query = value;
-                _refresh();
-              },
-            ),
-          ),
-          SizedBox(
-            height: 44,
-            child: ListView.separated(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              scrollDirection: Axis.horizontal,
-              itemCount: AppConstants.duasCategories.length,
-              separatorBuilder: (_, _) => const SizedBox(width: 8),
-              itemBuilder: (context, index) {
-                final category = AppConstants.duasCategories[index];
-                return ChoiceChip(
-                  label: Text(category),
-                  selected: _category == category,
-                  onSelected: (_) {
-                    _category = category;
-                    _query = '';
-                    _refresh();
-                  },
-                );
-              },
-            ),
-          ),
-          Expanded(
-            child: FutureBuilder<List<Dua>>(
-              future: _future,
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const Center(child: CircularProgressIndicator());
-                }
-                final duas = snapshot.data!;
-                if (duas.isEmpty) {
-                  return const Center(child: Text('لا توجد أدعية في هذا القسم'));
-                }
-                return ListView.builder(
-                  padding: const EdgeInsets.all(16),
-                  itemCount: duas.length,
-                  itemBuilder: (context, index) => _DuaCard(dua: duas[index]),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-class _DuaCard extends StatelessWidget {
-  final Dua dua;
-
-  const _DuaCard({required this.dua});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.only(bottom: 12),
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(title: const Text('الأدعية'), centerTitle: true),
+        body: Column(
           children: [
-            Text(
-              dua.text,
-              textDirection: TextDirection.rtl,
-              textAlign: TextAlign.right,
-              style: Theme.of(context).textTheme.headlineSmall?.copyWith(height: 1.9),
-            ),
-            if (dua.reference != null) ...[
-              const SizedBox(height: 12),
-              Text(
-                dua.reference!,
+            Padding(
+              padding:  EdgeInsets.fromLTRB(16.w, 8.h, 16.w, 8.h),
+              child: TextField(
                 textDirection: TextDirection.rtl,
-                textAlign: TextAlign.right,
-                style: Theme.of(context).textTheme.bodySmall,
+                decoration: const InputDecoration(
+                  hintText: 'ابحث في الأدعية',
+                  prefixIcon: Icon(Icons.search),
+                ),
+                onChanged: (value) {
+                  _query = value;
+                  _refresh();
+                },
               ),
-            ],
+            ),
+            SizedBox(
+              height: 44.h,
+              child: ListView.separated(
+                padding:  EdgeInsets.symmetric(horizontal: 16.w),
+                scrollDirection: Axis.horizontal,
+                itemCount: AppConstants.duasCategories.length,
+                separatorBuilder: (_, _) =>  SizedBox(width: 8.w),
+                itemBuilder: (context, index) {
+                  final category = AppConstants.duasCategories[index];
+                  return ChoiceChip(
+                    label: Text(category),
+                    selected: _category == category,
+                    onSelected: (_) {
+                      _category = category;
+                      _query = '';
+                      _refresh();
+                    },
+                  );
+                },
+              ),
+            ),
+            Expanded(
+              child: FutureBuilder<List<Dua>>(
+                future: _future,
+                builder: (context, snapshot) {
+                  if (!snapshot.hasData) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  final duas = snapshot.data!;
+                  if (duas.isEmpty) {
+                    return const Center(
+                      child: Text('لا توجد أدعية في هذا القسم'),
+                    );
+                  }
+                  return ListView.builder(
+                    padding:  EdgeInsets.all(16.w),
+                    itemCount: duas.length,
+                    itemBuilder: (context, index) => DuaCard(dua: duas[index]),
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),
     );
   }
 }
+
+

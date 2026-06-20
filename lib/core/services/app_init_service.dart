@@ -15,7 +15,7 @@ class AppInitService {
       Hive.openBox(AppConstants.adhkarBoxName),
       Hive.openBox(AppConstants.duasBoxName),
       Hive.openBox(AppConstants.asmaBoxName),
-      Hive.openBox(AppConstants.favoritesBoxName),
+      Hive.openBox(AppConstants.roqiaBoxName),
       Hive.openBox(AppConstants.settingsBoxName),
       Hive.openBox(AppConstants.readingProgressBoxName),
     ]);

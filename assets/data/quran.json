@@ -1,7 +1,7 @@
 [
   {
     "number": 1,
-    "name_arabic": "???????",
+    "name_arabic": "الفاتحة",
     "name_english": "Al-Fatihah",
     "verse_count": 7,
     "revelation": "Meccan",
@@ -60,7 +60,7 @@
   },
   {
     "number": 2,
-    "name_arabic": "??????",
+    "name_arabic": "البقرة",
     "name_english": "Al-Baqarah",
     "verse_count": 286,
     "revelation": "Medinan",
@@ -2072,7 +2072,7 @@
   },
   {
     "number": 3,
-    "name_arabic": "?? ?????",
+    "name_arabic": "آل عمران",
     "name_english": "Ali Imran",
     "verse_count": 200,
     "revelation": "Medinan",
@@ -3482,7 +3482,7 @@
   },
   {
     "number": 4,
-    "name_arabic": "??????",
+    "name_arabic": "النساء",
     "name_english": "An-Nisa",
     "verse_count": 176,
     "revelation": "Medinan",
@@ -4724,7 +4724,7 @@
   },
   {
     "number": 5,
-    "name_arabic": "???????",
+    "name_arabic": "المائدة",
     "name_english": "Al-Ma'idah",
     "verse_count": 120,
     "revelation": "Medinan",
@@ -5574,7 +5574,7 @@
   },
   {
     "number": 6,
-    "name_arabic": "???????",
+    "name_arabic": "الأنعام",
     "name_english": "Al-An'am",
     "verse_count": 165,
     "revelation": "Meccan",
@@ -6739,7 +6739,7 @@
   },
   {
     "number": 7,
-    "name_arabic": "???????",
+    "name_arabic": "الأعراف",
     "name_english": "Al-A'raf",
     "verse_count": 206,
     "revelation": "Meccan",
@@ -8191,7 +8191,7 @@
   },
   {
     "number": 8,
-    "name_arabic": "???????",
+    "name_arabic": "الأنفال",
     "name_english": "Al-Anfal",
     "verse_count": 75,
     "revelation": "Medinan",
@@ -8726,7 +8726,7 @@
   },
   {
     "number": 9,
-    "name_arabic": "??????",
+    "name_arabic": "التوبة",
     "name_english": "At-Tawbah",
     "verse_count": 129,
     "revelation": "Medinan",
@@ -9639,7 +9639,7 @@
   },
   {
     "number": 10,
-    "name_arabic": "????",
+    "name_arabic": "يونس",
     "name_english": "Yunus",
     "verse_count": 109,
     "revelation": "Meccan",
@@ -10412,7 +10412,7 @@
   },
   {
     "number": 11,
-    "name_arabic": "???",
+    "name_arabic": "هود",
     "name_english": "Hud",
     "verse_count": 123,
     "revelation": "Meccan",
@@ -11283,7 +11283,7 @@
   },
   {
     "number": 12,
-    "name_arabic": "????",
+    "name_arabic": "يوسف",
     "name_english": "Yusuf",
     "verse_count": 111,
     "revelation": "Meccan",
@@ -12070,7 +12070,7 @@
   },
   {
     "number": 13,
-    "name_arabic": "?????",
+    "name_arabic": "الرعد",
     "name_english": "Ar-Ra'd",
     "verse_count": 43,
     "revelation": "Medinan",
@@ -12381,7 +12381,7 @@
   },
   {
     "number": 14,
-    "name_arabic": "???????",
+    "name_arabic": "إبراهيم",
     "name_english": "Ibrahim",
     "verse_count": 52,
     "revelation": "Meccan",
@@ -12755,7 +12755,7 @@
   },
   {
     "number": 15,
-    "name_arabic": "?????",
+    "name_arabic": "الحجر",
     "name_english": "Al-Hijr",
     "verse_count": 99,
     "revelation": "Meccan",
@@ -13458,7 +13458,7 @@
   },
   {
     "number": 16,
-    "name_arabic": "?????",
+    "name_arabic": "النحل",
     "name_english": "An-Nahl",
     "verse_count": 128,
     "revelation": "Meccan",
@@ -14364,7 +14364,7 @@
   },
   {
     "number": 17,
-    "name_arabic": "???????",
+    "name_arabic": "الإسراء",
     "name_english": "Al-Isra",
     "verse_count": 111,
     "revelation": "Meccan",
@@ -15151,7 +15151,7 @@
   },
   {
     "number": 18,
-    "name_arabic": "?????",
+    "name_arabic": "الكهف",
     "name_english": "Al-Kahf",
     "verse_count": 110,
     "revelation": "Meccan",
@@ -15931,7 +15931,7 @@
   },
   {
     "number": 19,
-    "name_arabic": "????",
+    "name_arabic": "مريم",
     "name_english": "Maryam",
     "verse_count": 98,
     "revelation": "Meccan",
@@ -16627,7 +16627,7 @@
   },
   {
     "number": 20,
-    "name_arabic": "??",
+    "name_arabic": "طه",
     "name_english": "Taha",
     "verse_count": 135,
     "revelation": "Meccan",
@@ -17582,7 +17582,7 @@
   },
   {
     "number": 21,
-    "name_arabic": "????????",
+    "name_arabic": "الأنبياء",
     "name_english": "Al-Anbiya",
     "verse_count": 112,
     "revelation": "Meccan",
@@ -18376,7 +18376,7 @@
   },
   {
     "number": 22,
-    "name_arabic": "????",
+    "name_arabic": "الحج",
     "name_english": "Al-Hajj",
     "verse_count": 78,
     "revelation": "Medinan",
@@ -18932,7 +18932,7 @@
   },
   {
     "number": 23,
-    "name_arabic": "????????",
+    "name_arabic": "المؤمنون",
     "name_english": "Al-Mu'minun",
     "verse_count": 118,
     "revelation": "Meccan",
@@ -19768,7 +19768,7 @@
   },
   {
     "number": 24,
-    "name_arabic": "?????",
+    "name_arabic": "النور",
     "name_english": "An-Nur",
     "verse_count": 64,
     "revelation": "Medinan",
@@ -20226,7 +20226,7 @@
   },
   {
     "number": 25,
-    "name_arabic": "???????",
+    "name_arabic": "الفرقان",
     "name_english": "Al-Furqan",
     "verse_count": 77,
     "revelation": "Meccan",
@@ -20775,7 +20775,7 @@
   },
   {
     "number": 26,
-    "name_arabic": "???????",
+    "name_arabic": "الشعراء",
     "name_english": "Ash-Shu'ara",
     "verse_count": 227,
     "revelation": "Meccan",
@@ -22374,7 +22374,7 @@
   },
   {
     "number": 27,
-    "name_arabic": "?????",
+    "name_arabic": "النمل",
     "name_english": "An-Naml",
     "verse_count": 93,
     "revelation": "Meccan",
@@ -23035,7 +23035,7 @@
   },
   {
     "number": 28,
-    "name_arabic": "?????",
+    "name_arabic": "القصص",
     "name_english": "Al-Qasas",
     "verse_count": 88,
     "revelation": "Meccan",
@@ -23661,7 +23661,7 @@
   },
   {
     "number": 29,
-    "name_arabic": "????????",
+    "name_arabic": "العنكبوت",
     "name_english": "Al-Ankabut",
     "verse_count": 69,
     "revelation": "Meccan",
@@ -24154,7 +24154,7 @@
   },
   {
     "number": 30,
-    "name_arabic": "?????",
+    "name_arabic": "الروم",
     "name_english": "Ar-Rum",
     "verse_count": 60,
     "revelation": "Meccan",
@@ -24584,7 +24584,7 @@
   },
   {
     "number": 31,
-    "name_arabic": "?????",
+    "name_arabic": "لقمان",
     "name_english": "Luqman",
     "verse_count": 34,
     "revelation": "Meccan",
@@ -24832,7 +24832,7 @@
   },
   {
     "number": 32,
-    "name_arabic": "??????",
+    "name_arabic": "السجدة",
     "name_english": "As-Sajdah",
     "verse_count": 30,
     "revelation": "Meccan",
@@ -25052,7 +25052,7 @@
   },
   {
     "number": 33,
-    "name_arabic": "???????",
+    "name_arabic": "الأحزاب",
     "name_english": "Al-Ahzab",
     "verse_count": 73,
     "revelation": "Medinan",
@@ -25573,7 +25573,7 @@
   },
   {
     "number": 34,
-    "name_arabic": "???",
+    "name_arabic": "سبأ",
     "name_english": "Saba",
     "verse_count": 54,
     "revelation": "Meccan",
@@ -25961,7 +25961,7 @@
   },
   {
     "number": 35,
-    "name_arabic": "????",
+    "name_arabic": "فاطر",
     "name_english": "Fatir",
     "verse_count": 45,
     "revelation": "Meccan",
@@ -26286,7 +26286,7 @@
   },
   {
     "number": 36,
-    "name_arabic": "??",
+    "name_arabic": "يس",
     "name_english": "Ya-Sin",
     "verse_count": 83,
     "revelation": "Meccan",
@@ -26877,7 +26877,7 @@
   },
   {
     "number": 37,
-    "name_arabic": "???????",
+    "name_arabic": "الصافات",
     "name_english": "As-Saffat",
     "verse_count": 182,
     "revelation": "Meccan",
@@ -28161,7 +28161,7 @@
   },
   {
     "number": 38,
-    "name_arabic": "?",
+    "name_arabic": "ص",
     "name_english": "Sad",
     "verse_count": 88,
     "revelation": "Meccan",
@@ -28787,7 +28787,7 @@
   },
   {
     "number": 39,
-    "name_arabic": "?????",
+    "name_arabic": "الزمر",
     "name_english": "Az-Zumar",
     "verse_count": 75,
     "revelation": "Meccan",
@@ -29322,7 +29322,7 @@
   },
   {
     "number": 40,
-    "name_arabic": "????",
+    "name_arabic": "غافر",
     "name_english": "Ghafir",
     "verse_count": 85,
     "revelation": "Meccan",
@@ -29927,7 +29927,7 @@
   },
   {
     "number": 41,
-    "name_arabic": "????",
+    "name_arabic": "فصلت",
     "name_english": "Fussilat",
     "verse_count": 54,
     "revelation": "Meccan",
@@ -30315,7 +30315,7 @@
   },
   {
     "number": 42,
-    "name_arabic": "??????",
+    "name_arabic": "الشورى",
     "name_english": "Ash-Shuraa",
     "verse_count": 53,
     "revelation": "Meccan",
@@ -30696,7 +30696,7 @@
   },
   {
     "number": 43,
-    "name_arabic": "??????",
+    "name_arabic": "الزخرف",
     "name_english": "Az-Zukhruf",
     "verse_count": 89,
     "revelation": "Meccan",
@@ -31329,7 +31329,7 @@
   },
   {
     "number": 44,
-    "name_arabic": "??????",
+    "name_arabic": "الدخان",
     "name_english": "Ad-Dukhan",
     "verse_count": 59,
     "revelation": "Meccan",
@@ -31752,7 +31752,7 @@
   },
   {
     "number": 45,
-    "name_arabic": "???????",
+    "name_arabic": "الجاثية",
     "name_english": "Al-Jathiyah",
     "verse_count": 37,
     "revelation": "Meccan",
@@ -32021,7 +32021,7 @@
   },
   {
     "number": 46,
-    "name_arabic": "???????",
+    "name_arabic": "الأحقاف",
     "name_english": "Al-Ahqaf",
     "verse_count": 35,
     "revelation": "Meccan",
@@ -32276,7 +32276,7 @@
   },
   {
     "number": 47,
-    "name_arabic": "????",
+    "name_arabic": "محمد",
     "name_english": "Muhammad",
     "verse_count": 38,
     "revelation": "Medinan",
@@ -32552,7 +32552,7 @@
   },
   {
     "number": 48,
-    "name_arabic": "?????",
+    "name_arabic": "الفتح",
     "name_english": "Al-Fath",
     "verse_count": 29,
     "revelation": "Medinan",
@@ -32765,7 +32765,7 @@
   },
   {
     "number": 49,
-    "name_arabic": "???????",
+    "name_arabic": "الحجرات",
     "name_english": "Al-Hujurat",
     "verse_count": 18,
     "revelation": "Medinan",
@@ -32901,7 +32901,7 @@
   },
   {
     "number": 50,
-    "name_arabic": "?",
+    "name_arabic": "ق",
     "name_english": "Qaf",
     "verse_count": 45,
     "revelation": "Meccan",
@@ -33226,7 +33226,7 @@
   },
   {
     "number": 51,
-    "name_arabic": "????????",
+    "name_arabic": "الذاريات",
     "name_english": "Adh-Dhariyat",
     "verse_count": 60,
     "revelation": "Meccan",
@@ -33656,7 +33656,7 @@
   },
   {
     "number": 52,
-    "name_arabic": "?????",
+    "name_arabic": "الطور",
     "name_english": "At-Tur",
     "verse_count": 49,
     "revelation": "Meccan",
@@ -34009,7 +34009,7 @@
   },
   {
     "number": 53,
-    "name_arabic": "?????",
+    "name_arabic": "النجم",
     "name_english": "An-Najm",
     "verse_count": 62,
     "revelation": "Meccan",
@@ -34453,7 +34453,7 @@
   },
   {
     "number": 54,
-    "name_arabic": "?????",
+    "name_arabic": "القمر",
     "name_english": "Al-Qamar",
     "verse_count": 55,
     "revelation": "Meccan",
@@ -34848,7 +34848,7 @@
   },
   {
     "number": 55,
-    "name_arabic": "??????",
+    "name_arabic": "الرحمن",
     "name_english": "Ar-Rahman",
     "verse_count": 78,
     "revelation": "Medinan",
@@ -35404,7 +35404,7 @@
   },
   {
     "number": 56,
-    "name_arabic": "???????",
+    "name_arabic": "الواقعة",
     "name_english": "Al-Waqi'ah",
     "verse_count": 96,
     "revelation": "Meccan",
@@ -36086,7 +36086,7 @@
   },
   {
     "number": 57,
-    "name_arabic": "??????",
+    "name_arabic": "الحديد",
     "name_english": "Al-Hadid",
     "verse_count": 29,
     "revelation": "Medinan",
@@ -36299,7 +36299,7 @@
   },
   {
     "number": 58,
-    "name_arabic": "????????",
+    "name_arabic": "المجادلة",
     "name_english": "Al-Mujadila",
     "verse_count": 22,
     "revelation": "Medinan",
@@ -36463,7 +36463,7 @@
   },
   {
     "number": 59,
-    "name_arabic": "?????",
+    "name_arabic": "الحشر",
     "name_english": "Al-Hashr",
     "verse_count": 24,
     "revelation": "Medinan",
@@ -36641,7 +36641,7 @@
   },
   {
     "number": 60,
-    "name_arabic": "????????",
+    "name_arabic": "الممتحنة",
     "name_english": "Al-Mumtahanah",
     "verse_count": 13,
     "revelation": "Medinan",
@@ -36742,7 +36742,7 @@
   },
   {
     "number": 61,
-    "name_arabic": "????",
+    "name_arabic": "الصف",
     "name_english": "As-Saff",
     "verse_count": 14,
     "revelation": "Medinan",
@@ -36850,7 +36850,7 @@
   },
   {
     "number": 62,
-    "name_arabic": "??????",
+    "name_arabic": "الجمعة",
     "name_english": "Al-Jumu'ah",
     "verse_count": 11,
     "revelation": "Medinan",
@@ -36937,7 +36937,7 @@
   },
   {
     "number": 63,
-    "name_arabic": "?????????",
+    "name_arabic": "المنافقون",
     "name_english": "Al-Munafiqun",
     "verse_count": 11,
     "revelation": "Medinan",
@@ -37024,7 +37024,7 @@
   },
   {
     "number": 64,
-    "name_arabic": "???????",
+    "name_arabic": "التغابن",
     "name_english": "At-Taghabun",
     "verse_count": 18,
     "revelation": "Medinan",
@@ -37160,7 +37160,7 @@
   },
   {
     "number": 65,
-    "name_arabic": "??????",
+    "name_arabic": "الطلاق",
     "name_english": "At-Talaq",
     "verse_count": 12,
     "revelation": "Medinan",
@@ -37254,7 +37254,7 @@
   },
   {
     "number": 66,
-    "name_arabic": "???????",
+    "name_arabic": "التحريم",
     "name_english": "At-Tahrim",
     "verse_count": 12,
     "revelation": "Medinan",
@@ -37348,7 +37348,7 @@
   },
   {
     "number": 67,
-    "name_arabic": "?????",
+    "name_arabic": "الملك",
     "name_english": "Al-Mulk",
     "verse_count": 30,
     "revelation": "Meccan",
@@ -37568,7 +37568,7 @@
   },
   {
     "number": 68,
-    "name_arabic": "?????",
+    "name_arabic": "القلم",
     "name_english": "Al-Qalam",
     "verse_count": 52,
     "revelation": "Meccan",
@@ -37942,7 +37942,7 @@
   },
   {
     "number": 69,
-    "name_arabic": "??????",
+    "name_arabic": "الحاقة",
     "name_english": "Al-Haqqah",
     "verse_count": 52,
     "revelation": "Meccan",
@@ -38316,7 +38316,7 @@
   },
   {
     "number": 70,
-    "name_arabic": "???????",
+    "name_arabic": "المعارج",
     "name_english": "Al-Ma'arij",
     "verse_count": 44,
     "revelation": "Meccan",
@@ -38634,7 +38634,7 @@
   },
   {
     "number": 71,
-    "name_arabic": "???",
+    "name_arabic": "نوح",
     "name_english": "Nuh",
     "verse_count": 28,
     "revelation": "Meccan",
@@ -38840,7 +38840,7 @@
   },
   {
     "number": 72,
-    "name_arabic": "????",
+    "name_arabic": "الجن",
     "name_english": "Al-Jinn",
     "verse_count": 28,
     "revelation": "Meccan",
@@ -39046,7 +39046,7 @@
   },
   {
     "number": 73,
-    "name_arabic": "??????",
+    "name_arabic": "المزمل",
     "name_english": "Al-Muzzammil",
     "verse_count": 20,
     "revelation": "Meccan",
@@ -39196,7 +39196,7 @@
   },
   {
     "number": 74,
-    "name_arabic": "??????",
+    "name_arabic": "المدثر",
     "name_english": "Al-Muddaththir",
     "verse_count": 56,
     "revelation": "Meccan",
@@ -39598,7 +39598,7 @@
   },
   {
     "number": 75,
-    "name_arabic": "???????",
+    "name_arabic": "القيامة",
     "name_english": "Al-Qiyamah",
     "verse_count": 40,
     "revelation": "Meccan",
@@ -39888,7 +39888,7 @@
   },
   {
     "number": 76,
-    "name_arabic": "???????",
+    "name_arabic": "الإنسان",
     "name_english": "Al-Insan",
     "verse_count": 31,
     "revelation": "Medinan",
@@ -40115,7 +40115,7 @@
   },
   {
     "number": 77,
-    "name_arabic": "????????",
+    "name_arabic": "المرسلات",
     "name_english": "Al-Mursalat",
     "verse_count": 50,
     "revelation": "Meccan",
@@ -40475,7 +40475,7 @@
   },
   {
     "number": 78,
-    "name_arabic": "?????",
+    "name_arabic": "النبأ",
     "name_english": "An-Naba",
     "verse_count": 40,
     "revelation": "Meccan",
@@ -40765,7 +40765,7 @@
   },
   {
     "number": 79,
-    "name_arabic": "????????",
+    "name_arabic": "النازعات",
     "name_english": "An-Nazi'at",
     "verse_count": 46,
     "revelation": "Meccan",
@@ -41097,7 +41097,7 @@
   },
   {
     "number": 80,
-    "name_arabic": "???",
+    "name_arabic": "عبس",
     "name_english": "Abasa",
     "verse_count": 42,
     "revelation": "Meccan",
@@ -41401,7 +41401,7 @@
   },
   {
     "number": 81,
-    "name_arabic": "???????",
+    "name_arabic": "التكوير",
     "name_english": "At-Takwir",
     "verse_count": 29,
     "revelation": "Meccan",
@@ -41614,7 +41614,7 @@
   },
   {
     "number": 82,
-    "name_arabic": "????????",
+    "name_arabic": "الانفطار",
     "name_english": "Al-Infitar",
     "verse_count": 19,
     "revelation": "Meccan",
@@ -41757,7 +41757,7 @@
   },
   {
     "number": 83,
-    "name_arabic": "????????",
+    "name_arabic": "المطففين",
     "name_english": "Al-Mutaffifin",
     "verse_count": 36,
     "revelation": "Meccan",
@@ -42019,7 +42019,7 @@
   },
   {
     "number": 84,
-    "name_arabic": "????????",
+    "name_arabic": "الانشقاق",
     "name_english": "Al-Inshiqaq",
     "verse_count": 25,
     "revelation": "Meccan",
@@ -42204,7 +42204,7 @@
   },
   {
     "number": 85,
-    "name_arabic": "??????",
+    "name_arabic": "البروج",
     "name_english": "Al-Buruj",
     "verse_count": 22,
     "revelation": "Meccan",
@@ -42368,7 +42368,7 @@
   },
   {
     "number": 86,
-    "name_arabic": "??????",
+    "name_arabic": "الطارق",
     "name_english": "At-Tariq",
     "verse_count": 17,
     "revelation": "Meccan",
@@ -42497,7 +42497,7 @@
   },
   {
     "number": 87,
-    "name_arabic": "??????",
+    "name_arabic": "الأعلى",
     "name_english": "Al-A'la",
     "verse_count": 19,
     "revelation": "Meccan",
@@ -42640,7 +42640,7 @@
   },
   {
     "number": 88,
-    "name_arabic": "???????",
+    "name_arabic": "الغاشية",
     "name_english": "Al-Ghashiyah",
     "verse_count": 26,
     "revelation": "Meccan",
@@ -42832,7 +42832,7 @@
   },
   {
     "number": 89,
-    "name_arabic": "?????",
+    "name_arabic": "الفجر",
     "name_english": "Al-Fajr",
     "verse_count": 30,
     "revelation": "Meccan",
@@ -43052,7 +43052,7 @@
   },
   {
     "number": 90,
-    "name_arabic": "?????",
+    "name_arabic": "البلد",
     "name_english": "Al-Balad",
     "verse_count": 20,
     "revelation": "Meccan",
@@ -43202,7 +43202,7 @@
   },
   {
     "number": 91,
-    "name_arabic": "?????",
+    "name_arabic": "الشمس",
     "name_english": "Ash-Shams",
     "verse_count": 15,
     "revelation": "Meccan",
@@ -43317,7 +43317,7 @@
   },
   {
     "number": 92,
-    "name_arabic": "?????",
+    "name_arabic": "الليل",
     "name_english": "Al-Layl",
     "verse_count": 21,
     "revelation": "Meccan",
@@ -43474,7 +43474,7 @@
   },
   {
     "number": 93,
-    "name_arabic": "?????",
+    "name_arabic": "الضحى",
     "name_english": "Ad-Duhaa",
     "verse_count": 11,
     "revelation": "Meccan",
@@ -43561,7 +43561,7 @@
   },
   {
     "number": 94,
-    "name_arabic": "?????",
+    "name_arabic": "الشرح",
     "name_english": "Ash-Sharh",
     "verse_count": 8,
     "revelation": "Meccan",
@@ -43627,7 +43627,7 @@
   },
   {
     "number": 95,
-    "name_arabic": "?????",
+    "name_arabic": "التين",
     "name_english": "At-Tin",
     "verse_count": 8,
     "revelation": "Meccan",
@@ -43693,7 +43693,7 @@
   },
   {
     "number": 96,
-    "name_arabic": "?????",
+    "name_arabic": "العلق",
     "name_english": "Al-Alaq",
     "verse_count": 19,
     "revelation": "Meccan",
@@ -43836,7 +43836,7 @@
   },
   {
     "number": 97,
-    "name_arabic": "?????",
+    "name_arabic": "القدر",
     "name_english": "Al-Qadr",
     "verse_count": 5,
     "revelation": "Meccan",
@@ -43881,7 +43881,7 @@
   },
   {
     "number": 98,
-    "name_arabic": "??????",
+    "name_arabic": "البينة",
     "name_english": "Al-Bayyinah",
     "verse_count": 8,
     "revelation": "Medinan",
@@ -43947,7 +43947,7 @@
   },
   {
     "number": 99,
-    "name_arabic": "???????",
+    "name_arabic": "الزلزلة",
     "name_english": "Az-Zalzalah",
     "verse_count": 8,
     "revelation": "Medinan",
@@ -44013,7 +44013,7 @@
   },
   {
     "number": 100,
-    "name_arabic": "????????",
+    "name_arabic": "العاديات",
     "name_english": "Al-Adiyat",
     "verse_count": 11,
     "revelation": "Meccan",
@@ -44100,7 +44100,7 @@
   },
   {
     "number": 101,
-    "name_arabic": "???????",
+    "name_arabic": "القارعة",
     "name_english": "Al-Qari'ah",
     "verse_count": 11,
     "revelation": "Meccan",
@@ -44187,7 +44187,7 @@
   },
   {
     "number": 102,
-    "name_arabic": "???????",
+    "name_arabic": "التكاثر",
     "name_english": "At-Takathur",
     "verse_count": 8,
     "revelation": "Meccan",
@@ -44253,7 +44253,7 @@
   },
   {
     "number": 103,
-    "name_arabic": "?????",
+    "name_arabic": "العصر",
     "name_english": "Al-Asr",
     "verse_count": 3,
     "revelation": "Meccan",
@@ -44284,7 +44284,7 @@
   },
   {
     "number": 104,
-    "name_arabic": "??????",
+    "name_arabic": "الهمزة",
     "name_english": "Al-Humazah",
     "verse_count": 9,
     "revelation": "Meccan",
@@ -44357,7 +44357,7 @@
   },
   {
     "number": 105,
-    "name_arabic": "?????",
+    "name_arabic": "الفيل",
     "name_english": "Al-Fil",
     "verse_count": 5,
     "revelation": "Meccan",
@@ -44402,7 +44402,7 @@
   },
   {
     "number": 106,
-    "name_arabic": "????",
+    "name_arabic": "قريش",
     "name_english": "Quraysh",
     "verse_count": 4,
     "revelation": "Meccan",
@@ -44440,7 +44440,7 @@
   },
   {
     "number": 107,
-    "name_arabic": "???????",
+    "name_arabic": "الماعون",
     "name_english": "Al-Ma'un",
     "verse_count": 7,
     "revelation": "Meccan",
@@ -44499,7 +44499,7 @@
   },
   {
     "number": 108,
-    "name_arabic": "??????",
+    "name_arabic": "الكوثر",
     "name_english": "Al-Kawthar",
     "verse_count": 3,
     "revelation": "Meccan",
@@ -44530,7 +44530,7 @@
   },
   {
     "number": 109,
-    "name_arabic": "????????",
+    "name_arabic": "الكافرون",
     "name_english": "Al-Kafirun",
     "verse_count": 6,
     "revelation": "Meccan",
@@ -44582,7 +44582,7 @@
   },
   {
     "number": 110,
-    "name_arabic": "?????",
+    "name_arabic": "النصر",
     "name_english": "An-Nasr",
     "verse_count": 3,
     "revelation": "Medinan",
@@ -44613,7 +44613,7 @@
   },
   {
     "number": 111,
-    "name_arabic": "?????",
+    "name_arabic": "المسد",
     "name_english": "Al-Masad",
     "verse_count": 5,
     "revelation": "Meccan",
@@ -44658,7 +44658,7 @@
   },
   {
     "number": 112,
-    "name_arabic": "???????",
+    "name_arabic": "الإخلاص",
     "name_english": "Al-Ikhlas",
     "verse_count": 4,
     "revelation": "Meccan",
@@ -44696,7 +44696,7 @@
   },
   {
     "number": 113,
-    "name_arabic": "?????",
+    "name_arabic": "الفلق",
     "name_english": "Al-Falaq",
     "verse_count": 5,
     "revelation": "Meccan",
@@ -44741,7 +44741,7 @@
   },
   {
     "number": 114,
-    "name_arabic": "?????",
+    "name_arabic": "الناس",
     "name_english": "An-Nas",
     "verse_count": 6,
     "revelation": "Meccan",

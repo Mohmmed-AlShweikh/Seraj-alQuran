@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
 import 'package:seraj_quran/presentation/providers/app/app_repository_provider.dart';
@@ -11,7 +12,12 @@ class TasbihScreen extends StatefulWidget {
 }
 
 class _TasbihScreenState extends State<TasbihScreen> {
-  static const _presets = ['سبحان الله', 'الحمد لله', 'الله أكبر', 'لا إله إلا الله'];
+  static const _presets = [
+    'سبحان الله',
+    'الحمد لله',
+    'الله أكبر',
+    'لا إله إلا الله',
+  ];
 
   String _text = _presets.first;
   int _target = 33;
@@ -47,93 +53,118 @@ class _TasbihScreenState extends State<TasbihScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final progress = (_count / _target).clamp(0.0, 1.0);
-    return Scaffold(
-      appBar: AppBar(title: const Text('التسبيح'), centerTitle: true),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            DropdownButtonFormField<String>(
-              value: _text,
-              decoration: const InputDecoration(labelText: 'الذكر'),
-              items: _presets
-                  .map((preset) => DropdownMenuItem(value: preset, child: Text(preset)))
-                  .toList(),
-              onChanged: (value) {
-                if (value == null) return;
-                setState(() {
-                  _text = value;
-                  _count = 0;
-                });
-                _save();
-              },
-            ),
-            const SizedBox(height: 16),
-            SegmentedButton<int>(
-              segments: const [
-                ButtonSegment(value: 33, label: Text('33')),
-                ButtonSegment(value: 99, label: Text('99')),
-                ButtonSegment(value: 100, label: Text('100')),
-              ],
-              selected: {_target},
-              onSelectionChanged: (value) {
-                setState(() {
-                  _target = value.first;
-                  _count = 0;
-                });
-                _save();
-              },
-            ),
-            const Spacer(),
-            Center(
-              child: SizedBox(
-                width: 240,
-                height: 240,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    SizedBox(
-                      width: 240,
-                      height: 240,
-                      child: CircularProgressIndicator(
-                        value: progress,
-                        strokeWidth: 12,
-                      ),
-                    ),
-                    Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          '$_count',
-                          style: Theme.of(context).textTheme.displayLarge,
+    final progress = (_count % _target) / _target;
+    final rounds = _count ~/ _target;
+
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: Scaffold(
+        appBar: AppBar(title: const Text('التسبيح'), centerTitle: true),
+        body: Padding(
+          padding:  EdgeInsets.all(24.w),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              DropdownButtonFormField<String>(
+                initialValue: _text,
+                decoration: const InputDecoration(labelText: 'الذكر'),
+                items: _presets
+                    .map(
+                      (preset) =>
+                          DropdownMenuItem(value: preset, child: Text(preset)),
+                    )
+                    .toList(),
+                onChanged: (value) {
+                  if (value == null) return;
+                  setState(() {
+                    _text = value;
+                    _count = 0;
+                  });
+                  _save();
+                },
+              ),
+              const SizedBox(height: 16),
+              SegmentedButton<int>(
+                segments: const [
+                  ButtonSegment(value: 33, label: Text('٣٣')),
+                  ButtonSegment(value: 99, label: Text('٩٩')),
+                  ButtonSegment(value: 100, label: Text('١٠٠')),
+                ],
+                selected: {_target},
+                onSelectionChanged: (value) {
+                  setState(() {
+                    _target = value.first;
+                    _count = 0;
+                  });
+                  _save();
+                },
+              ),
+              const Spacer(),
+              Center(
+                child: SizedBox(
+                  width: 250.w,
+                  height: 250.h,
+                  child: Stack(
+                    alignment: Alignment.center,
+                    children: [
+                      SizedBox(
+                        width: 250.w,
+                        height: 250.h,
+                        child: CircularProgressIndicator(
+                          value: progress == 0 && _count > 0 ? 1 : progress,
+                          strokeWidth: 12,
                         ),
-                        Text('/ $_target', style: Theme.of(context).textTheme.titleMedium),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            _toArabicNumber(_count),
+                            style: Theme.of(context).textTheme.displayLarge,
+                          ),
+                          Text(
+                            'من ${_toArabicNumber(_target)}',
+                            style: Theme.of(context).textTheme.titleMedium,
+                          ),
+                          if (rounds > 0)
+                            Text(
+                              'أتممت ${_toArabicNumber(rounds)} مرة',
+                              style: Theme.of(context).textTheme.labelMedium,
+                            ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            ),
-            const Spacer(),
-            FilledButton(
-              onPressed: _increment,
-              style: FilledButton.styleFrom(
-                minimumSize: const Size.fromHeight(64),
-                shape: const CircleBorder(),
+              const Spacer(),
+              FilledButton(
+                onPressed: _increment,
+                style: FilledButton.styleFrom(
+                  minimumSize:  Size.fromHeight(64.h),
+                  shape: const CircleBorder(),
+                ),
+                child:  Icon(Icons.add, size: 36.sp),
               ),
-              child: const Icon(Icons.add, size: 36),
-            ),
-            const SizedBox(height: 16),
-            OutlinedButton.icon(
-              onPressed: _reset,
-              icon: const Icon(Icons.refresh),
-              label: const Text('Reset'),
-            ),
-          ],
+               SizedBox(height: 16.h),
+              OutlinedButton.icon(
+                onPressed: _reset,
+                icon: const Icon(Icons.refresh),
+                label: const Text('إعادة العد'),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
+}
+
+String _toArabicNumber(num value) {
+  const western = '0123456789';
+  const eastern = '٠١٢٣٤٥٦٧٨٩';
+  return value.toString().split('').map((char) {
+    final index = western.indexOf(char);
+    return index == -1 ? char : eastern[index];
+  }).join();
 }

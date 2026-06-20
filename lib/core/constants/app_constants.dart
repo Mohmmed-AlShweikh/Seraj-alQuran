@@ -1,7 +1,7 @@
 /// App-wide constants
 class AppConstants {
   /// App Name
-  static const String appName = 'Siraj Quran';
+  static const String appName = 'سراج القرآن';
   static const String appNameArabic = 'سراج القرآن';
 
   /// Version
@@ -12,7 +12,7 @@ class AppConstants {
   static const String adhkarBoxName = 'adhkar_box';
   static const String duasBoxName = 'duas_box';
   static const String asmaBoxName = 'asma_ul_husna_box';
-  static const String favoritesBoxName = 'favorites_box';
+  static const String roqiaBoxName = 'roqia_box';
   static const String settingsBoxName = 'settings_box';
   static const String readingProgressBoxName = 'reading_progress_box';
 
@@ -36,22 +36,21 @@ class AppConstants {
 
   /// Adhkar Categories
   static const List<String> adhkarCategories = [
-    'Morning Adhkar',
-    'Evening Adhkar',
-    'Before Sleep Adhkar',
-    'Wake-Up Adhkar',
-    'After Prayer Adhkar',
-    'Daily Adhkar',
+    'أذكار الصباح',
+    'أذكار المساء',
+    'أذكار قبل النوم',
+    'أذكار الاستيقاظ من النوم',
+    'أذكار بعد الصلاة',
+    'أذكار يومية',
   ];
 
   /// Duas Categories
   static const List<String> duasCategories = [
-    'Quranic Duas',
-    'Prophetic Duas',
-    'Travel Duas',
-    'Rizq (Provision) Duas',
-    'Distress and Hardship Duas',
-    'General Duas',
+    'أدعية قرأنية',
+    'أدعية النبي',
+    'أدعية السفر',
+    'أدعية الرزق',
+    'أدعية الضيق',
   ];
 
   /// Asma Ul Husna

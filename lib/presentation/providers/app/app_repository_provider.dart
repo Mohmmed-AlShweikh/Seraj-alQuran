@@ -4,14 +4,14 @@ import 'package:seraj_quran/core/constants/app_constants.dart';
 import 'package:seraj_quran/data/datasources/adhkar_local_datasource.dart';
 import 'package:seraj_quran/data/datasources/asma_ul_husna_local_datasource.dart';
 import 'package:seraj_quran/data/datasources/duas_local_datasource.dart';
-import 'package:seraj_quran/data/datasources/favorites_local_datasource.dart';
+import 'package:seraj_quran/data/datasources/roqia_datasource.dart';
 import 'package:seraj_quran/data/datasources/quran_local_datasource.dart';
 import 'package:seraj_quran/data/datasources/tasbih_local_datasource.dart';
 import 'package:seraj_quran/data/repositories/adhkar_repository_impl.dart';
 import 'package:seraj_quran/data/repositories/asma_ul_husna_repository_impl.dart';
 import 'package:seraj_quran/data/repositories/duas_repository_impl.dart';
-import 'package:seraj_quran/data/repositories/favorites_repository_impl.dart';
 import 'package:seraj_quran/data/repositories/quran_repository_impl.dart';
+import 'package:seraj_quran/data/repositories/roqia_repository_impl.dart';
 import 'package:seraj_quran/data/repositories/tasbih_repository_impl.dart';
 import 'package:seraj_quran/domain/repositories/repositories.dart';
 
@@ -21,9 +21,8 @@ class AppRepositoryProvider extends ChangeNotifier {
   late AdhkarRepository adhkarRepository;
   late DuasRepository duasRepository;
   late AsmaUlHusnaRepository asmaUlHusnaRepository;
-  late FavoritesRepository favoritesRepository;
   late TasbihRepository tasbihRepository;
-
+  late RoqiaRepository roqiaRepository;
   bool isInitialized = false;
 
   /// Initialize all repositories
@@ -34,7 +33,7 @@ class AppRepositoryProvider extends ChangeNotifier {
       final adhkarBox = Hive.box(AppConstants.adhkarBoxName);
       final duasBox = Hive.box(AppConstants.duasBoxName);
       final asmaBox = Hive.box(AppConstants.asmaBoxName);
-      final favoritesBox = Hive.box(AppConstants.favoritesBoxName);
+      final roqiaBox = Hive.box(AppConstants.roqiaBoxName);
       final tasbihBox = Hive.box(AppConstants.readingProgressBoxName);
 
       // Initialize data sources
@@ -50,7 +49,9 @@ class AppRepositoryProvider extends ChangeNotifier {
       final asmaDataSource = AsmaUlHusnaLocalDataSource(asmaBox);
       await asmaDataSource.init();
 
-      final favoritesDataSource = FavoritesLocalDataSource(favoritesBox);
+      final roqiaDataSource = RoqiaLocalDataSource(roqiaBox);
+      await roqiaDataSource.init();
+
       final tasbihDataSource = TasbihLocalDataSource(tasbihBox);
 
       // Initialize repositories
@@ -58,7 +59,7 @@ class AppRepositoryProvider extends ChangeNotifier {
       adhkarRepository = AdhkarRepositoryImpl(adhkarDataSource);
       duasRepository = DuasRepositoryImpl(duasDataSource);
       asmaUlHusnaRepository = AsmaUlHusnaRepositoryImpl(asmaDataSource);
-      favoritesRepository = FavoritesRepositoryImpl(favoritesDataSource);
+      roqiaRepository = RoqiaRepositoryImpl(roqiaDataSource) as RoqiaRepository;
       tasbihRepository = TasbihRepositoryImpl(tasbihDataSource);
 
       isInitialized = true;

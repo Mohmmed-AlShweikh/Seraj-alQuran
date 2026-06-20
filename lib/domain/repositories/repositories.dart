@@ -33,6 +33,20 @@ abstract class AdhkarRepository {
   Future<List<Dhikr>> searchAdhkar(String query);
 }
 
+
+
+/// Roqia Repository Interface
+abstract class RoqiaRepository {
+  /// Get all roqia
+  Future<List<Dhikr>> getAllRoqia();
+
+  /// Get roqia by category
+  Future<List<Dhikr>> getRoqiaByCategory(String category);
+
+  /// Search roqia
+  Future<List<Dhikr>> searchRoqia(String query);
+}
+
 /// Duas Repository Interface
 abstract class DuasRepository {
   /// Get all duas
