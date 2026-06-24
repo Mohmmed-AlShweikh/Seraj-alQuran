@@ -1,11 +1,11 @@
 {
-    "name": "seraj_quran",
-    "short_name": "seraj_quran",
+    "name": "سراج القرآن",
+    "short_name": "سراج القرآن",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "background_color": "#1B7A3F",
+    "theme_color": "#1B7A3F",
+    "description": "تطبيق إسلامي شامل للقرآن الكريم والأذكار والأدعية وأسماء الله الحسنى والرقية الشرعية",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
