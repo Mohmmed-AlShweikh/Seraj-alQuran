@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:seraj_quran/config/theme/app_theme.dart';
+import 'package:seraj_quran/config/theme/responsive.dart';
 import 'package:seraj_quran/presentation/providers/favorites/favorites_provider.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -49,24 +50,26 @@ class FavoritesScreen extends StatelessWidget {
 class _EmptyFavorites extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+        final isLandscape = context.isLandscape;
+
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Container(
-            width: 80.w,
-            height: 80.w,
+            width: isLandscape ? 40.w : 80.w,
+            height: isLandscape ? 40.w : 80.w,
             decoration: BoxDecoration(
               color: Colors.red.shade50,
               shape: BoxShape.circle,
             ),
             child: Icon(
               Icons.favorite_outline_rounded,
-              size: 38.sp,
+              size: isLandscape ? 28.sp : 38.sp,
               color: Colors.red.shade300,
             ),
           ),
-          SizedBox(height: 20.h),
+          SizedBox(height: isLandscape ? 10.h : 20.h),
           Text(
             'لا توجد مفضلات بعد',
             style: TextStyle(
@@ -75,12 +78,12 @@ class _EmptyFavorites extends StatelessWidget {
               color: Theme.of(context).colorScheme.onSurface,
             ),
           ),
-          SizedBox(height: 8.h),
+          SizedBox(height: isLandscape ? 6.h : 12.h),
           Text(
             'أضف الأذكار والأدعية التي تحبها\nبالضغط على أيقونة القلب',
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 14.sp,
+              fontSize: isLandscape ? 10.sp : 14.sp,
               color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
               height: 1.6,
             ),

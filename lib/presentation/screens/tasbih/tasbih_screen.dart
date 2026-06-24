@@ -110,9 +110,7 @@ class _TasbihScreenState extends State<TasbihScreen>
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: isLandscape
-            ? null
-            : AppBar(
+        appBar:AppBar(
                 title: const Text('عداد التسبيح'),
                 centerTitle: true,
               ),
@@ -221,131 +219,133 @@ class _TasbihScreenState extends State<TasbihScreen>
     final progress = _target > 0 ? (_count % _target) / _target : 0.0;
     final displayProgress = progress == 0 && _count > 0 ? 1.0 : progress;
 
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        SizedBox(
-          width: circleSize,
-          height: circleSize,
-          child: Stack(
-            alignment: Alignment.center,
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            width: circleSize,
+            height: circleSize,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  width: circleSize,
+                  height: circleSize,
+                  child: CircularProgressIndicator(
+                    value: displayProgress,
+                    strokeWidth: isLandscape ? 8 : 14,
+                    backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      _isComplete ? AppTheme.secondaryColor : AppTheme.primaryColor,
+                    ),
+                  ),
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      _toArabicNumber(_count),
+                      style: Theme.of(context).textTheme.displayLarge?.copyWith(
+                            fontSize: isLandscape ? 28.sp : 52.sp,
+                            color: _isComplete ? AppTheme.secondaryColor : AppTheme.primaryColor,
+                            fontWeight: FontWeight.bold,
+                          ),
+                    ),
+                    Text(
+                      'من ${_toArabicNumber(_target)}',
+                      style: TextStyle(
+                        fontSize: isLandscape ? 11.sp : 16.sp,
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
+                      ),
+                    ),
+                    SizedBox(height: 4.h),
+                    Text(
+                      _text,
+                      textAlign: TextAlign.center,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: isLandscape ? 9.sp : 13.sp,
+                        color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: isLandscape ? 10.h : 24.h),
+          ScaleTransition(
+            scale: _scaleAnim,
+            child: GestureDetector(
+              onTap: _isComplete ? null : _increment,
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 200),
+                width: isLandscape ? 35.w : 90.w,
+                height: isLandscape ? 35.w : 90.w,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: _isComplete ? AppTheme.secondaryColor : AppTheme.primaryColor,
+                  boxShadow: [
+                    BoxShadow(
+                      color: (_isComplete ? AppTheme.secondaryColor : AppTheme.primaryColor)
+                          .withValues(alpha: 0.4),
+                      blurRadius: 20,
+                      offset: const Offset(0, 8),
+                    ),
+                  ],
+                ),
+                child: Icon(
+                  _isComplete ? Icons.check_rounded : Icons.add_rounded,
+                  color: Colors.white,
+                  size: isLandscape ? 28.sp : 38.sp,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: isLandscape ? 8.h : 14.h),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
-                width: circleSize,
-                height: circleSize,
-                child: CircularProgressIndicator(
-                  value: displayProgress,
-                  strokeWidth: isLandscape ? 8 : 14,
-                  backgroundColor: Theme.of(context).colorScheme.surfaceContainerHighest,
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    _isComplete ? AppTheme.secondaryColor : AppTheme.primaryColor,
-                  ),
-                ),
-              ),
-              Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    _toArabicNumber(_count),
-                    style: Theme.of(context).textTheme.displayLarge?.copyWith(
-                          fontSize: isLandscape ? 28.sp : 52.sp,
-                          color: _isComplete ? AppTheme.secondaryColor : AppTheme.primaryColor,
-                          fontWeight: FontWeight.bold,
-                        ),
-                  ),
-                  Text(
-                    'من ${_toArabicNumber(_target)}',
-                    style: TextStyle(
-                      fontSize: isLandscape ? 11.sp : 16.sp,
-                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.5),
-                    ),
-                  ),
-                  SizedBox(height: 4.h),
-                  Text(
-                    _text,
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontSize: isLandscape ? 9.sp : 13.sp,
-                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.6),
-                      fontWeight: FontWeight.w500,
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: isLandscape ? 10.h : 24.h),
-        ScaleTransition(
-          scale: _scaleAnim,
-          child: GestureDetector(
-            onTap: _isComplete ? null : _increment,
-            child: AnimatedContainer(
-              duration: const Duration(milliseconds: 200),
-              width: isLandscape ? 64.w : 90.w,
-              height: isLandscape ? 64.w : 90.w,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: _isComplete ? AppTheme.secondaryColor : AppTheme.primaryColor,
-                boxShadow: [
-                  BoxShadow(
-                    color: (_isComplete ? AppTheme.secondaryColor : AppTheme.primaryColor)
-                        .withValues(alpha: 0.4),
-                    blurRadius: 20,
-                    offset: const Offset(0, 8),
-                  ),
-                ],
-              ),
-              child: Icon(
-                _isComplete ? Icons.check_rounded : Icons.add_rounded,
-                color: Colors.white,
-                size: isLandscape ? 28.sp : 38.sp,
-              ),
-            ),
-          ),
-        ),
-        SizedBox(height: isLandscape ? 8.h : 14.h),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            OutlinedButton.icon(
-              onPressed: _reset,
-              icon: Icon(Icons.refresh_rounded, size: 16.sp),
-              label: Text(
-                _isComplete ? 'جولة جديدة' : 'إعادة',
-                style: TextStyle(fontSize: isLandscape ? 10.sp : 13.sp),
-              ),
-              style: OutlinedButton.styleFrom(
-                padding: EdgeInsets.symmetric(
-                  horizontal: isLandscape ? 10.w : 14.w,
-                  vertical: isLandscape ? 6.h : 8.h,
-                ),
-              ),
-            ),
-            if (_totalRounds > 0) ...[
-              SizedBox(width: 8.w),
-              TextButton.icon(
-                onPressed: _fullReset,
-                icon: Icon(Icons.restart_alt_rounded, size: 16.sp),
+              OutlinedButton.icon(
+                onPressed: _reset,
+                icon: Icon(Icons.refresh_rounded, size: 16.sp),
                 label: Text(
-                  'تصفير الكل',
+                  _isComplete ? 'جولة جديدة' : 'إعادة',
                   style: TextStyle(fontSize: isLandscape ? 10.sp : 13.sp),
                 ),
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.red.shade400,
+                style: OutlinedButton.styleFrom(
                   padding: EdgeInsets.symmetric(
                     horizontal: isLandscape ? 10.w : 14.w,
                     vertical: isLandscape ? 6.h : 8.h,
                   ),
                 ),
               ),
+              if (_totalRounds > 0) ...[
+                SizedBox(width: 8.w),
+                TextButton.icon(
+                  onPressed: _fullReset,
+                  icon: Icon(Icons.restart_alt_rounded, size: 16.sp),
+                  label: Text(
+                    'تصفير الكل',
+                    style: TextStyle(fontSize: isLandscape ? 10.sp : 13.sp),
+                  ),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.red.shade400,
+                    padding: EdgeInsets.symmetric(
+                      horizontal: isLandscape ? 10.w : 14.w,
+                      vertical: isLandscape ? 6.h : 8.h,
+                    ),
+                  ),
+                ),
+              ],
             ],
-          ],
-        ),
-      ],
+          ),
+        ],
+      ),
     );
   }
 }
