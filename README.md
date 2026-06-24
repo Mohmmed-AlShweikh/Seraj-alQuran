@@ -55,6 +55,10 @@ A modern Islamic Flutter application that helps Muslims access the Holy Quran, d
   <img src="assets/screenshots/4.jpeg" width="200"/>
   <img src="assets/screenshots/5.jpeg" width="200"/>
   <img src="assets/screenshots/6.jpeg" width="200"/>
+  <img src="assets/screenshots/7.jpeg" width="200"/>
+  <img src="assets/screenshots/8.jpeg" width="200"/>
+  <img src="assets/screenshots/9.jpeg" width="200"/>
+
 </p>
 
 
