@@ -54,7 +54,7 @@ flutter:
     - assets/data/
     - assets/icons/
     - assets/fonts/
-    - assets/screenshoots/
+    - assets/screenshots/
 
   fonts:
     - family: UthmanTN1
