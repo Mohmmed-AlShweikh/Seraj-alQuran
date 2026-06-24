@@ -1,0 +1,58 @@
+want you to review and improve my Flutter app comprehensively.
+
+1. UI/UX Redesign
+Improve the overall app design to make it more modern, clean, attractive, and user-friendly.
+Enhance the color palette to create a consistent, calming, and visually appealing Islamic theme.
+Improve typography, spacing, card design, icons, and visual hierarchy.
+Make the app feel premium and polished for production release on Google Play.
+Ensure the design is responsive on all screen sizes (mobile and tablet).
+Improve animations and transitions where needed.
+2. Content Enhancement
+Review the Adhkar and Duas sections carefully.
+Add more authentic and verified Islamic adhkar and duas from trusted sources.
+Organize them into clear categories (Morning Adhkar, Evening Adhkar, Sleep Adhkar, Prayer Adhkar, Protection Adhkar, Ruqyah, Daily Duas, etc.).
+Improve content ordering and user navigation for easier access.
+Ensure all texts are correct, well-formatted, and free of mistakes.
+3. Feature Suggestions
+
+Analyze the app and suggest new valuable features that can make it stand out for publishing on Google Play. Possible examples:
+
+Favorites system
+Daily reminders/notifications for adhkar
+Progress tracking for Tasbeeh
+Search functionality
+Audio playback for adhkar
+Offline-first architecture
+Dark mode
+Custom themes
+Statistics for daily worship habits
+Continue reading feature
+Share adhkar/duas as images
+Quran bookmarks
+Random daily dhikr widget
+
+Feel free to suggest better ideas if you find more useful ones.
+
+4. Code Refactoring
+Refactor the codebase for better performance, readability, maintainability, and scalability.
+Remove duplicated code and dead code.
+Improve state management architecture.
+Optimize widget rebuilding.
+Improve folder structure and project organization.
+Apply best practices in Flutter development.
+Improve error handling and loading states.
+Ensure the app is production-ready.
+5. Store Readiness
+
+Make the app suitable for publishing:
+
+Better onboarding experience
+Better empty states
+Better app flow
+Better app icon suggestions
+Better screenshots suggestions for store listing
+Better metadata suggestions for store optimization (ASO)
+
+The app should feel like a professional Islamic app that users will enjoy using daily.
+
+Please analyze everything deeply and implement improvements step by step.

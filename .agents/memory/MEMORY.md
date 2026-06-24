@@ -1,0 +1,2 @@
+- [Flutter Siraj App Setup](flutter-siraj-setup.md) — Flutter 3.32.0/Dart 3.8.0 via Nix; build cmd + dev server pattern; key constraints.
+- [Siraj App Architecture](siraj-architecture.md) — provider/hive/repository pattern; key provider classes and what each owns.
