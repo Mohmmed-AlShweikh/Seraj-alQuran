@@ -1,3 +1,4 @@
+import 'package:seraj_quran/data/models/models.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
 
 /// Quran Repository Interface
@@ -15,10 +16,10 @@ abstract class QuranRepository {
   Future<List<Verse>> searchVerses(String query);
 
   /// Get reading progress
-  Future<ReadingProgress?> getReadingProgress();
+  Future<ReadingProgressModel?> getReadingProgress();
 
   /// Save reading progress
-  Future<void> saveReadingProgress(ReadingProgress progress);
+  Future<void> saveReadingProgress(ReadingProgressModel progress);
 }
 
 /// Adhkar Repository Interface
@@ -32,8 +33,6 @@ abstract class AdhkarRepository {
   /// Search adhkar
   Future<List<Dhikr>> searchAdhkar(String query);
 }
-
-
 
 /// Roqia Repository Interface
 abstract class RoqiaRepository {

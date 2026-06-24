@@ -5,6 +5,7 @@ import 'package:hive/hive.dart';
 import 'package:seraj_quran/core/constants/app_constants.dart';
 import 'package:seraj_quran/data/models/models.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class QuranLocalDataSource {
   final Box _quranBox;
@@ -71,28 +72,38 @@ class QuranLocalDataSource {
         .toList();
   }
 
-  ReadingProgress? getReadingProgress() {
-    final data = _quranBox.get('reading_progress');
-    if (data == null) return null;
-    final model = ReadingProgressModel.fromJson(jsonDecode(data));
-    return ReadingProgress(
-      id: model.id,
-      currentSurah: model.currentSurah,
-      currentAyah: model.currentAyah,
-      currentPage: model.currentPage,
-      lastReadAt: model.lastReadAt,
-    );
+  Future<ReadingProgressModel?> getReadingProgress() async {
+    final prefs = await SharedPreferences.getInstance();
+
+    final json = prefs.getString('reading_progress');
+
+    if (json == null) {
+      return null;
+    }
+
+    return ReadingProgressModel.fromJson(jsonDecode(json));
   }
 
-  Future<void> saveReadingProgress(ReadingProgress progress) async {
-    final model = ReadingProgressModel(
-      id: progress.id,
-      currentSurah: progress.currentSurah,
-      currentAyah: progress.currentAyah,
-      currentPage: progress.currentPage,
-      lastReadAt: progress.lastReadAt,
+  Future<void> saveReadingProgress(ReadingProgressModel progress) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setString(
+      'reading_progress',
+
+      jsonEncode(
+        ReadingProgressModel(
+          id: progress.id,
+
+          currentSurah: progress.currentSurah,
+
+          currentAyah: progress.currentAyah,
+
+          currentPage: progress.currentPage,
+
+          lastReadAt: progress.lastReadAt,
+        ).toJson(),
+      ),
     );
-    await _quranBox.put('reading_progress', jsonEncode(model));
   }
 
   Surah _modelToEntity(SurahModel model) {

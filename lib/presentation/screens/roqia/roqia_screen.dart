@@ -5,7 +5,6 @@ import 'package:seraj_quran/domain/entities/entities.dart';
 import 'package:seraj_quran/presentation/providers/app/app_repository_provider.dart';
 import 'package:seraj_quran/presentation/widgets/roqiaCard.dart';
 
-
 class RoqiaScreen extends StatefulWidget {
   const RoqiaScreen({super.key});
 
@@ -15,7 +14,7 @@ class RoqiaScreen extends StatefulWidget {
 
 class _RoqiaScreenState extends State<RoqiaScreen> {
   late Future<List<Dhikr>> _future;
-  String _query = '';
+  final String _query = '';
   @override
   void initState() {
     super.initState();
@@ -30,8 +29,6 @@ class _RoqiaScreenState extends State<RoqiaScreen> {
     return repo.getAllRoqia();
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -40,7 +37,6 @@ class _RoqiaScreenState extends State<RoqiaScreen> {
         appBar: AppBar(title: const Text('الرقية الشرعية'), centerTitle: true),
         body: Column(
           children: [
-          
             Expanded(
               child: FutureBuilder<List<Dhikr>>(
                 future: _future,
@@ -48,15 +44,16 @@ class _RoqiaScreenState extends State<RoqiaScreen> {
                   if (!snapshot.hasData) {
                     return const Center(child: CircularProgressIndicator());
                   }
-                 final items = [...snapshot.data!]
-  ..sort((a, b) => int.parse(a.id).compareTo(int.parse(b.id)));
+                  final items = [
+                    ...snapshot.data!,
+                  ]..sort((a, b) => int.parse(a.id).compareTo(int.parse(b.id)));
                   if (items.isEmpty) {
                     return const Center(
                       child: Text('لا توجد رقية شرعية في هذه الصفحة'),
                     );
                   }
                   return ListView.builder(
-                    padding:  EdgeInsets.all(16.w),
+                    padding: EdgeInsets.all(16.w),
                     itemCount: items.length,
                     itemBuilder: (context, index) =>
                         RoqiaCard(dhikr: items[index]),
@@ -70,4 +67,3 @@ class _RoqiaScreenState extends State<RoqiaScreen> {
     );
   }
 }
-

@@ -18,20 +18,16 @@ class AsmaUlHusnaLocalDataSource {
   }
 
   Future<void> _loadNamesFromAssets() async {
-    final jsonString =
-        await rootBundle.loadString('assets/data/asma_ul_husna.json');
+    final jsonString = await rootBundle.loadString(
+      'assets/data/asma_ul_husna.json',
+    );
 
     final jsonData = jsonDecode(jsonString) as List<dynamic>;
 
     for (final item in jsonData) {
-      final model = AsmaNameModel.fromJson(
-        item as Map<String, dynamic>,
-      );
+      final model = AsmaNameModel.fromJson(item as Map<String, dynamic>);
 
-      await _asmaBox.put(
-        'asma_${model.number}',
-        jsonEncode(model.toJson()),
-      );
+      await _asmaBox.put('asma_${model.number}', jsonEncode(model.toJson()));
     }
   }
 
@@ -43,11 +39,7 @@ class AsmaUlHusnaLocalDataSource {
       final data = _asmaBox.getAt(i);
 
       if (key.toString().startsWith('asma_') && data != null) {
-        _asmaCache.add(
-          AsmaNameModel.fromJson(
-            jsonDecode(data),
-          ),
-        );
+        _asmaCache.add(AsmaNameModel.fromJson(jsonDecode(data)));
       }
     }
   }
@@ -58,9 +50,7 @@ class AsmaUlHusnaLocalDataSource {
 
   AsmaName? getName(int number) {
     try {
-      final model = _asmaCache.firstWhere(
-        (e) => e.number == number,
-      );
+      final model = _asmaCache.firstWhere((e) => e.number == number);
 
       return _modelToEntity(model);
     } catch (_) {
@@ -79,17 +69,17 @@ class AsmaUlHusnaLocalDataSource {
   }
 
   List<AsmaName> searchNames(String query) {
-  final lowerQuery = query.toLowerCase();
+    final lowerQuery = query.toLowerCase();
 
-  return _asmaCache
-      .where(
-        (model) =>
-            model.nameArabic.contains(query) ||
-            model.nameTransliteration.toLowerCase().contains(lowerQuery) ||
-            model.meaning.toLowerCase().contains(lowerQuery) ||
-            (model.explanation?.toLowerCase().contains(lowerQuery) ?? false),
-      )
-      .map(_modelToEntity)
-      .toList();
-}
+    return _asmaCache
+        .where(
+          (model) =>
+              model.nameArabic.contains(query) ||
+              model.nameTransliteration.toLowerCase().contains(lowerQuery) ||
+              model.meaning.toLowerCase().contains(lowerQuery) ||
+              (model.explanation?.toLowerCase().contains(lowerQuery) ?? false),
+        )
+        .map(_modelToEntity)
+        .toList();
+  }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:seraj_quran/data/models/models.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
 import 'package:seraj_quran/domain/repositories/repositories.dart';
 
@@ -6,11 +7,11 @@ import 'package:seraj_quran/domain/repositories/repositories.dart';
 class QuranProvider extends ChangeNotifier {
   final QuranRepository _repository;
 
- List<Surah> _surahs = [];
-Surah? _currentSurah;
-List<Verse> _searchResults = [];
-ReadingProgress? _readingProgress;
-int _selectedSurahIndex = 0;
+  List<Surah> _surahs = [];
+  Surah? _currentSurah;
+  List<Verse> _searchResults = [];
+  ReadingProgressModel? _readingProgress;
+  int _selectedSurahIndex = 0;
 
   bool _isLoading = true;
   String? _error;
@@ -21,7 +22,7 @@ int _selectedSurahIndex = 0;
   List<Surah> get surahs => _surahs;
   Surah? get currentSurah => _currentSurah;
   List<Verse> get searchResults => _searchResults;
-  ReadingProgress? get readingProgress => _readingProgress;
+  ReadingProgressModel? get readingProgress => _readingProgress;
   int get selectedSurahIndex => _selectedSurahIndex;
   bool get isLoading => _isLoading;
   String? get error => _error;
@@ -50,6 +51,7 @@ int _selectedSurahIndex = 0;
       _error = e.toString();
       _isLoading = false;
     }
+    loadReadingProgress();
     notifyListeners();
   }
 
@@ -92,7 +94,7 @@ int _selectedSurahIndex = 0;
     int page,
   ) async {
     try {
-      final progress = ReadingProgress(
+      final progress = ReadingProgressModel(
         id: 'reading_progress',
         currentSurah: surahNumber,
         currentAyah: ayahNumber,
@@ -104,6 +106,16 @@ int _selectedSurahIndex = 0;
     } catch (e) {
       _error = e.toString();
     }
+    notifyListeners();
+  }
+
+  Future<void> loadReadingProgress() async {
+    try {
+      _readingProgress = await _repository.getReadingProgress();
+    } catch (e) {
+      _error = e.toString();
+    }
+
     notifyListeners();
   }
 

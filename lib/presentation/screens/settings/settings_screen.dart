@@ -18,19 +18,16 @@ class SettingsScreen extends StatelessWidget {
             return ListView(
               children: [
                 Padding(
-                  padding:  EdgeInsets.all(16.w),
+                  padding: EdgeInsets.all(16.w),
                   child: Text(
                     'المظهر',
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ),
                 Card(
-                  margin:  EdgeInsets.symmetric(
-                    horizontal: 16.w,
-                    vertical: 8.h,
-                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                   child: Padding(
-                    padding:  EdgeInsets.all(12.w),
+                    padding: EdgeInsets.all(12.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -38,7 +35,7 @@ class SettingsScreen extends StatelessWidget {
                           'السمة',
                           style: Theme.of(context).textTheme.titleMedium,
                         ),
-                         SizedBox(height: 12.h),
+                        SizedBox(height: 12.h),
                         SegmentedButton<ThemeMode>(
                           segments: const [
                             ButtonSegment(
@@ -69,19 +66,16 @@ class SettingsScreen extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding:  EdgeInsets.only(top: 24.h, left: 16.w, right: 16.w),
+                  padding: EdgeInsets.only(top: 24.h, left: 16.w, right: 16.w),
                   child: Text(
                     'عن التطبيق',
                     style: Theme.of(context).textTheme.headlineSmall,
                   ),
                 ),
                 Card(
-                  margin:  EdgeInsets.symmetric(
-                    horizontal: 16.w,
-                    vertical: 8.h,
-                  ),
+                  margin: EdgeInsets.symmetric(horizontal: 16.w, vertical: 8.h),
                   child: Padding(
-                    padding:  EdgeInsets.all(12.w),
+                    padding: EdgeInsets.all(12.w),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [

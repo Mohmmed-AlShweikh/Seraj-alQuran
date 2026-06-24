@@ -6,7 +6,6 @@ import 'package:seraj_quran/data/models/models.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
 
 class RoqiaLocalDataSource {
-
   final Box _roqiaBox;
   List<DhikrModel> _roqiaCache = [];
 

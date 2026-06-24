@@ -97,7 +97,7 @@ class AppTheme {
     useMaterial3: true,
     brightness: Brightness.dark,
     colorScheme: const ColorScheme.dark(
-      primary: primaryColorLight,
+      primary: Color.fromRGBO(76, 175, 80, 1),
       onPrimary: darkBackgroundColor,
       secondary: secondaryColorLight,
       onSecondary: darkBackgroundColor,

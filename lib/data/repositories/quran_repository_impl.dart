@@ -1,4 +1,5 @@
 import 'package:seraj_quran/data/datasources/quran_local_datasource.dart';
+import 'package:seraj_quran/data/models/models.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
 import 'package:seraj_quran/domain/repositories/repositories.dart';
 
@@ -29,12 +30,12 @@ class QuranRepositoryImpl implements QuranRepository {
   }
 
   @override
-  Future<ReadingProgress?> getReadingProgress() async {
+  Future<ReadingProgressModel?> getReadingProgress() async {
     return _localDataSource.getReadingProgress();
   }
 
   @override
-  Future<void> saveReadingProgress(ReadingProgress progress) async {
+  Future<void> saveReadingProgress(ReadingProgressModel progress) async {
     await _localDataSource.saveReadingProgress(progress);
   }
 }

@@ -5,14 +5,14 @@ import 'package:seraj_quran/domain/entities/entities.dart';
 class DuaCard extends StatelessWidget {
   final Dua dua;
 
-  const DuaCard({required this.dua});
+  const DuaCard({super.key, required this.dua});
 
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin:  EdgeInsets.only(bottom: 12.h),
+      margin: EdgeInsets.only(bottom: 12.h),
       child: Padding(
-        padding:  EdgeInsets.all(16.w),
+        padding: EdgeInsets.all(16.w),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -25,7 +25,7 @@ class DuaCard extends StatelessWidget {
               ).textTheme.headlineSmall?.copyWith(height: 1.9.h),
             ),
             if (dua.reference != null) ...[
-               SizedBox(height: 12.h),
+              SizedBox(height: 12.h),
               Text(
                 dua.reference!,
                 textDirection: TextDirection.rtl,
