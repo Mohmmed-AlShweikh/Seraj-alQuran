@@ -4,7 +4,7 @@ publish_to: 'none'
 version: 1.0.0+1
 
 environment:
-  sdk: 3.11.4
+  sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
   flutter:
@@ -22,7 +22,7 @@ dependencies:
   hijri: ^3.0.1
   flutter_launcher_icons: ^0.14.4
   flutter_screenutil: ^5.9.3
-  shared_preferences: ^2.5.5
+  shared_preferences: ^2.3.0
 
 dev_dependencies:
   flutter_test:

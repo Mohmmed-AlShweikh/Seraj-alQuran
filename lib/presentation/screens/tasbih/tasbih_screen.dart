@@ -132,7 +132,7 @@ class _TasbihScreenState extends State<TasbihScreen> {
 
       children: [
         DropdownButtonFormField<String>(
-          initialValue: _text,
+          value: _text,
 
           decoration: const InputDecoration(labelText: 'الذكر'),
 
