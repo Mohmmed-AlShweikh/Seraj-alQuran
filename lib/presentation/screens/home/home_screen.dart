@@ -30,70 +30,72 @@ class HomeScreen extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        appBar: AppBar(
-          title: Text(
-            'سراج القرآن',
-            style: TextStyle(
-              fontSize: 20.sp,
-              fontWeight: FontWeight.w700,
-              color: AppTheme.primaryColor,
-            ),
+      appBar: AppBar(
+  toolbarHeight: 64,
+  centerTitle: true,
+  title: Text(
+    'سراج القرآن',
+    style: TextStyle(
+      fontSize: 24,
+      fontWeight: FontWeight.w700,
+      color: AppTheme.primaryColor,
+    ),
+  ),
+  actions: [
+    Consumer<FavoritesProvider>(
+      builder: (context, fav, _) => Stack(
+        children: [
+          IconButton(
+            icon: const Icon(Icons.favorite_rounded),
+            color: AppTheme.secondaryColor,
+            onPressed: () =>
+                openPage(context, const FavoritesScreen()),
           ),
-          actions: [
-            Consumer<FavoritesProvider>(
-              builder: (context, fav, _) => Stack(
-                children: [
-                  IconButton(
-                    icon: const Icon(Icons.favorite_rounded),
-                    color: AppTheme.secondaryColor,
-                    onPressed: () => openPage(context, const FavoritesScreen()),
-                  ),
-                  if (fav.count > 0)
-                    Positioned(
-                      top: 6,
-                      left: 6,
-                      child: Container(
-                        width: 16,
-                        height: 16,
-                        decoration: const BoxDecoration(
-                          color: AppTheme.primaryColor,
-                          shape: BoxShape.circle,
-                        ),
-                        child: Center(
-                          child: Text(
-                            '${fav.count}',
-                            style: const TextStyle(
-                              color: Colors.white,
-                              fontSize: 9,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ),
-                      ),
+          if (fav.count > 0)
+            Positioned(
+              top: 8,
+              left: 8,
+              child: Container(
+                width: 18,
+                height: 18,
+                decoration: const BoxDecoration(
+                  color: AppTheme.primaryColor,
+                  shape: BoxShape.circle,
+                ),
+                child: Center(
+                  child: Text(
+                    '${fav.count}',
+                    style: const TextStyle(
+                      color: Colors.white,
+                      fontSize: 10,
+                      fontWeight: FontWeight.bold,
                     ),
-                ],
+                  ),
+                ),
               ),
             ),
-            IconButton(
-              icon: const Icon(Icons.settings_outlined),
-              onPressed: () => openPage(context, const SettingsScreen()),
-            ),
+        ],
+      ),
+    ),
+    IconButton(
+      icon: const Icon(Icons.settings_outlined),
+      onPressed: () =>
+          openPage(context, const SettingsScreen()),
+    ),
+  ],
+),
+        body: ListView(
+          padding: EdgeInsets.fromLTRB(16.w, 4.h, 16.w, 32.h),
+          children: [
+            const _HeaderCard(),
+            SizedBox(height: 16.h),
+            const _ContinueReadingCard(),
+            const _QuranSection(),
+            SizedBox(height: 16.h),
+            const _AdhkarSection(),
+            SizedBox(height: 16.h),
+            const _LearnSection(),
           ],
-        ),
-        body: SafeArea(
-          child: ListView(
-            padding: EdgeInsets.fromLTRB(16.w, 4.h, 16.w, 32.h),
-            children: [
-              const _HeaderCard(),
-              SizedBox(height: 16.h),
-              const _ContinueReadingCard(),
-              const _QuranSection(),
-              SizedBox(height: 16.h),
-              const _AdhkarSection(),
-              SizedBox(height: 16.h),
-              const _LearnSection(),
-            ],
-          ),
         ),
       ),
     );

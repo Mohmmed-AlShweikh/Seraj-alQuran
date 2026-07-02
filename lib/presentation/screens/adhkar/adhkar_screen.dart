@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
-import 'package:seraj_quran/config/theme/responsive.dart';
 import 'package:seraj_quran/core/constants/app_constants.dart';
 import 'package:seraj_quran/domain/entities/entities.dart';
 import 'package:seraj_quran/presentation/providers/app/app_repository_provider.dart';
@@ -18,13 +16,11 @@ class _AdhkarScreenState extends State<AdhkarScreen> {
   late Future<List<Dhikr>> _future;
 
   String _category = AppConstants.adhkarCategories.first;
-
   String _query = '';
 
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-
     _future = _load();
   }
 
@@ -46,90 +42,65 @@ class _AdhkarScreenState extends State<AdhkarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final landscape = context.isLandscape;
+    final width = MediaQuery.of(context).size.width;
+
+    final isDesktop = width >= 1024;
+    final isTablet = width >= 600 && width < 1024;
 
     return Directionality(
       textDirection: TextDirection.rtl,
-
       child: Scaffold(
         appBar: AppBar(
-          toolbarHeight: landscape ? 45.h : 56.h,
-
-          title: Text(
-            'الأذكار',
-
-            style: TextStyle(fontSize: landscape ? 14.sp : 20.sp),
-          ),
-
           centerTitle: true,
+          toolbarHeight: isDesktop ? 70 : 56,
+          title: FittedBox(
+            fit: BoxFit.scaleDown,
+            child: Text(
+              'الأذكار',
+              style: TextStyle(
+                fontSize: isDesktop
+                    ? 28
+                    : isTablet
+                        ? 24
+                        : 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
-
         body: Column(
           children: [
-            landscape
-                ? SizedBox()
-                : Padding(
-                    padding: EdgeInsets.fromLTRB(
-                      12.w,
-                      landscape ? 4.h : 8.h,
-                      12.w,
-                      landscape ? 4.h : 8.h,
-                    ),
-
-                    child: TextField(
-                      textDirection: TextDirection.rtl,
-
-                      decoration: InputDecoration(
-                        hintText: 'ابحث في الأذكار',
-
-                        prefixIcon: const Icon(Icons.search),
-
-                        contentPadding: EdgeInsets.symmetric(
-                          vertical: landscape ? 8.h : 14.h,
-                        ),
-                      ),
-
-                      onChanged: (value) {
-                        _query = value;
-
-                        _refresh();
-                      },
-                    ),
-                  ),
+        isTablet?SizedBox():      Padding(
+              padding: const EdgeInsets.all(16),
+              child: TextField(
+                textDirection: TextDirection.rtl,
+                decoration: const InputDecoration(
+                  hintText: 'ابحث في الأذكار',
+                  prefixIcon: Icon(Icons.search),
+                ),
+                onChanged: (value) {
+                  _query = value;
+                  _refresh();
+                },
+              ),
+            ),
 
             SizedBox(
-              height: landscape ? 35.h : 44.h,
-
+              height: 52,
               child: ListView.separated(
-                padding: EdgeInsets.symmetric(horizontal: 12.w),
-
                 scrollDirection: Axis.horizontal,
-
+                padding: const EdgeInsets.symmetric(horizontal: 12),
                 itemCount: AppConstants.adhkarCategories.length,
-
-                separatorBuilder: (a, b) => SizedBox(width: 6.w),
-
+                separatorBuilder: (_, __) => const SizedBox(width: 8),
                 itemBuilder: (context, index) {
                   final category = AppConstants.adhkarCategories[index];
 
                   return ChoiceChip(
-                    label: Text(
-                      category,
-
-                      style: TextStyle(fontSize: landscape ? 10.sp : 14.sp),
-                    ),
-
+                    label: Text(category),
                     selected: _category == category,
-
-                    padding: EdgeInsets.symmetric(
-                      horizontal: landscape ? 4.w : 8.w,
-                    ),
-
                     onSelected: (_) {
                       _category = category;
-
                       _query = '';
-
                       _refresh();
                     },
                   );
@@ -137,13 +108,16 @@ class _AdhkarScreenState extends State<AdhkarScreen> {
               ),
             ),
 
+            const SizedBox(height: 8),
+
             Expanded(
               child: FutureBuilder<List<Dhikr>>(
                 future: _future,
-
                 builder: (context, snapshot) {
                   if (!snapshot.hasData) {
-                    return const Center(child: CircularProgressIndicator());
+                    return const Center(
+                      child: CircularProgressIndicator(),
+                    );
                   }
 
                   final items = snapshot.data!;
@@ -154,20 +128,24 @@ class _AdhkarScreenState extends State<AdhkarScreen> {
                     );
                   }
 
-                  return ListView.builder(
-                    padding: EdgeInsets.all(landscape ? 8.w : 16.w),
-
-                    itemCount: items.length,
-
-                    itemBuilder: (context, index) {
-                      return Padding(
-                        padding: EdgeInsets.only(
-                          bottom: landscape ? 6.h : 12.h,
-                        ),
-
-                        child: DhikrCard(dhikr: items[index]),
-                      );
-                    },
+                  return Center(
+                    child: ConstrainedBox(
+                      constraints:
+                          const BoxConstraints(maxWidth: 1000),
+                      child: ListView.builder(
+                        padding: const EdgeInsets.all(16),
+                        itemCount: items.length,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding:
+                                const EdgeInsets.only(bottom: 12),
+                            child: DhikrCard(
+                              dhikr: items[index],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   );
                 },
               ),

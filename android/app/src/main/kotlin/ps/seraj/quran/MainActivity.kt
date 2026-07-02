@@ -1,4 +1,4 @@
-package com.example.seraj_quran
+package ps.seraj.quran
 
 import io.flutter.embedding.android.FlutterActivity
 
