@@ -153,7 +153,7 @@ class _TasbihScreenState extends State<TasbihScreen>
           value: _text,
           decoration: InputDecoration(
             labelText: 'اختر الذكر',
-            prefixIcon: const Icon(Icons.text_fields_rounded),
+
             contentPadding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 10.h),
           ),
           items: _presets

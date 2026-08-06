@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 /// Wraps [child] in a [SingleChildScrollView].
-/// After the first frame it checks whether the content overflows the
-/// available [maxHeight]. If it does, scrolling is enabled automatically;
-/// otherwise [NeverScrollableScrollPhysics] keeps the page static.
+///
+/// After every build it measures the child's natural height with a [GlobalKey]
+/// and compares it against [maxHeight]. Scrolling is enabled automatically
+/// when the content overflows, and disabled again when it fits (e.g. after a
+/// font-size decrease or an orientation change).
+///
+/// The check retries on subsequent frames if the render object isn't ready yet,
+/// so it is robust against first-frame timing issues.
 class OverflowDetector extends StatefulWidget {
   final Widget child;
   final double maxHeight;
-  final ScrollController? scrollController;
 
   const OverflowDetector({
     required this.child,
     required this.maxHeight,
-    this.scrollController,
     super.key,
   });
 
@@ -21,48 +25,66 @@ class OverflowDetector extends StatefulWidget {
 }
 
 class _OverflowDetectorState extends State<OverflowDetector> {
-  late final ScrollController _controller;
-  ScrollPhysics _physics = const NeverScrollableScrollPhysics();
-  bool _checked = false;
+  final _contentKey = GlobalKey();
+  bool _scrollEnabled = false;
 
   @override
   void initState() {
     super.initState();
-    _controller = widget.scrollController ?? ScrollController();
-    WidgetsBinding.instance.addPostFrameCallback(_checkOverflow);
+    _scheduleCheck();
   }
 
   @override
   void didUpdateWidget(OverflowDetector old) {
     super.didUpdateWidget(old);
+    // Re-measure whenever the available height changes (orientation, etc.)
     if (old.maxHeight != widget.maxHeight) {
-      _checked = false;
-      WidgetsBinding.instance.addPostFrameCallback(_checkOverflow);
+      _scheduleCheck();
     }
   }
 
-  void _checkOverflow(Duration _) {
-    if (_checked || !mounted) return;
-    _checked = true;
-    if (!_controller.hasClients) return;
-    final pos = _controller.position;
-    if (pos.maxScrollExtent > 0) {
-      setState(() => _physics = const ClampingScrollPhysics());
-    }
+  void _scheduleCheck() {
+    SchedulerBinding.instance.addPostFrameCallback((_) => _checkOverflow());
   }
 
-  @override
-  void dispose() {
-    if (widget.scrollController == null) _controller.dispose();
-    super.dispose();
+  void _checkOverflow() {
+    if (!mounted) return;
+
+    final ctx = _contentKey.currentContext;
+    if (ctx == null) {
+      // Render object not attached yet — retry next frame.
+      _scheduleCheck();
+      return;
+    }
+
+    final box = ctx.findRenderObject() as RenderBox?;
+    if (box == null || !box.hasSize) {
+      _scheduleCheck();
+      return;
+    }
+
+    final contentHeight = box.size.height;
+    final overflows = contentHeight > widget.maxHeight + 1; // 1px tolerance
+
+    if (overflows != _scrollEnabled) {
+      setState(() => _scrollEnabled = overflows);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    // Schedule a re-check after every build so a font-size change that causes
+    // the content to grow is always detected.
+    SchedulerBinding.instance.addPostFrameCallback((_) => _checkOverflow());
+
     return SingleChildScrollView(
-      controller: _controller,
-      physics: _physics,
-      child: widget.child,
+      physics: _scrollEnabled
+          ? const ClampingScrollPhysics()
+          : const NeverScrollableScrollPhysics(),
+      child: SizedBox(
+        key: _contentKey,
+        child: widget.child,
+      ),
     );
   }
 }
