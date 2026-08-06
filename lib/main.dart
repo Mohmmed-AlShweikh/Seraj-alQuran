@@ -9,6 +9,7 @@ import 'package:seraj_quran/presentation/providers/favorites/favorites_provider.
 import 'package:seraj_quran/presentation/providers/quran/quran_provider.dart';
 import 'package:seraj_quran/presentation/providers/theme/theme_provider.dart';
 import 'package:seraj_quran/presentation/screens/home/home_screen.dart';
+import 'package:in_app_update/in_app_update.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,12 +44,23 @@ class SirajQuranApp extends StatefulWidget {
     required this.favoritesProvider,
     super.key,
   });
+  
 
   @override
   State<SirajQuranApp> createState() => _SirajQuranAppState();
 }
 
 class _SirajQuranAppState extends State<SirajQuranApp> {
+
+  @override
+void initState() {
+  super.initState();
+
+  WidgetsBinding.instance.addPostFrameCallback((_) {
+    checkForUpdate();
+  });
+}
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -84,5 +96,24 @@ class _SirajQuranAppState extends State<SirajQuranApp> {
         },
       ),
     );
+  }
+}
+
+Future<void> checkForUpdate() async {
+  try {
+    AppUpdateInfo updateInfo = await InAppUpdate.checkForUpdate();
+
+    if (updateInfo.updateAvailability ==
+        UpdateAvailability.updateAvailable) {
+
+      // تحديث إجباري
+      await InAppUpdate.performImmediateUpdate();
+
+      // أو تحديث مرن
+      // await InAppUpdate.startFlexibleUpdate();
+      // await InAppUpdate.completeFlexibleUpdate();
+    }
+  } catch (e) {
+    print("Update Error: $e");
   }
 }
