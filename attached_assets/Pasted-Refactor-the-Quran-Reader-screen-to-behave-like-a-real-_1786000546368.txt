@@ -1,0 +1,62 @@
+Refactor the Quran Reader screen to behave like a real Mushaf.
+
+Requirements:
+
+1. Remove the current Card layout completely.
+   - The Quran page should fill the entire available screen.
+   - Only keep the AppBar.
+   - AppBar should display:
+     - Surah name
+     - Verse count
+     - Existing action buttons.
+
+2. Quran text should occupy the entire page.
+   - No large padding.
+   - No rounded containers.
+   - No cards.
+
+3. The reader must use PageView for navigation.
+   - Swipe left/right changes the Mushaf page.
+   - Also provide floating previous/next buttons positioned vertically centered near the left and right screen edges.
+   - Buttons should slightly overlap the content area without reducing reading space.
+   - Fade them in when the user taps the screen and hide them automatically after a short delay.
+
+4. The content of each page MUST follow the official Mushaf page divisions.
+   Example:
+   Surah Al-Imran page 50 contains verses 1-9.
+   The app must use stored page metadata instead of calculating page breaks dynamically.
+
+5. By default the Quran page must NOT scroll vertically.
+   Use NeverScrollableScrollPhysics.
+
+6. If the selected font size becomes too large and the content no longer fits inside the page, automatically enable vertical scrolling only for that page.
+
+7. Keep the existing Mushaf page order and page numbers.
+
+8. Landscape mode must be fully optimized.
+   - Use almost the entire screen width.
+   - Reduce unnecessary padding.
+   - Keep the same Mushaf page divisions.
+   - Enable vertical scrolling only if larger font sizes overflow.
+
+9. Preserve all existing functionality:
+   - verse highlighting
+   - bookmarks
+   - tafsir
+   - sharing
+   - last read
+   - page navigation
+   - audio synchronization
+
+10. The implementation should be clean and modular:
+    - QuranReaderScreen
+    - QuranPageWidget
+    - FloatingPageNavigation
+    - QuranPageLayout
+    - OverflowDetector
+    - FontSizeController
+
+11. Avoid nested scroll views.
+    There should be only one PageView, and vertical scrolling should exist only when overflow is detected.
+
+The goal is to provide a reading experience very similar to the Madinah Mushaf while remaining responsive and supporting dynamic font sizes.
