@@ -51,8 +51,6 @@ flutter_launcher_icons:
   image_path: "assets/icons/holy_quran.png"
   min_sdk_android: 21
 flutter:
-config:
-  enable-swift-package-manager: false
   uses-material-design: true
   assets:
     - assets/data/
