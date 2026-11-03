@@ -1,7 +1,7 @@
 name: seraj_quran
 description: "Siraj Quran - A professional Islamic mobile application with complete Quran, Adhkar, Duas, and Asma Ul Husna."
 publish_to: 'none'
-version: 1.0.0+3
+version: 1.0.0+5
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
